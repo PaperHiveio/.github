@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Paperhive banner</title>
+<!-- Exported to banner.png at 1280x640, 2x: see README in this folder's repo -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=JetBrains+Mono:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&display=block" rel="stylesheet">
+<style>
+  :root {
+    --cream: #FFF6E3;
+    --paper: #FFFDF7;
+    --ink: #3A2410;
+    --ink-soft: #6B4A2A;
+    --honey: #F29E1F;
+    --honey-light: #FFC94A;
+    --green: #4E8A2E;
+    --line: #E9D9B8;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  html, body { width: 1280px; height: 640px; overflow: hidden; }
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: "IBM Plex Sans", sans-serif;
+    position: relative;
+  }
+  /* faint pixel honeycomb in the corner, drawn with plain squares */
+  .comb {
+    position: absolute; right: -40px; top: -40px; width: 420px; height: 420px;
+    background-image:
+      linear-gradient(var(--line) 2px, transparent 2px),
+      linear-gradient(90deg, var(--line) 2px, transparent 2px);
+    background-size: 24px 24px;
+    mask-image: radial-gradient(circle at 70% 30%, #000 0 35%, transparent 70%);
+  }
+  .frame {
+    position: absolute; inset: 28px;
+    border: 3px solid var(--ink);
+    background: var(--paper);
+    box-shadow: 8px 8px 0 var(--ink);
+    display: grid;
+    grid-template-columns: 1fr 470px;
+    grid-template-rows: 1fr auto;
+  }
+  .left { padding: 44px 0 0 48px; }
+  .brand { display: flex; align-items: center; gap: 22px; }
+  .brand img { width: 112px; height: 112px; image-rendering: pixelated; }
+  .wordmark {
+    font-family: "Silkscreen", monospace; font-weight: 700;
+    font-size: 64px; line-height: 1; letter-spacing: 1px;
+  }
+  .wordmark span { color: var(--honey); }
+  .kicker {
+    font-family: "Silkscreen", monospace; font-size: 15px; letter-spacing: 2px;
+    color: var(--ink-soft); margin-top: 8px;
+  }
+  h1 {
+    font-size: 40px; font-weight: 600; line-height: 1.15; margin-top: 34px; letter-spacing: -0.5px;
+  }
+  h1 mark { background: var(--honey-light); color: var(--ink); padding: 0 6px; }
+  p.lead { font-size: 19px; line-height: 1.5; color: var(--ink-soft); margin-top: 16px; max-width: 600px; }
+
+  .right { padding: 40px 40px 0 0; }
+  .term {
+    border: 3px solid var(--ink); background: #2B1B0C; color: #F3E6CC;
+    box-shadow: 6px 6px 0 var(--honey);
+    font-family: "JetBrains Mono", monospace; font-size: 14.5px; line-height: 1.55;
+  }
+  .term .bar {
+    display: flex; justify-content: space-between; align-items: center;
+    background: var(--ink); padding: 7px 12px;
+    font-family: "Silkscreen", monospace; font-size: 12px; letter-spacing: 1px; color: var(--honey-light);
+  }
+  .term .bar i { display: inline-block; width: 10px; height: 10px; background: var(--honey); margin-left: 6px; }
+  .term pre { padding: 14px 16px; font: inherit; white-space: pre; }
+  .k { color: var(--honey-light); }
+  .s { color: #A9D18E; }
+  .c { color: #9C8466; }
+  .ok { color: #A9D18E; font-weight: 700; }
+  .sep { border-top: 2px dashed #5A4026; margin: 0 16px; }
+
+  .facts {
+    grid-column: 1 / -1;
+    display: grid; grid-template-columns: 1.35fr 1.25fr 1fr 0.7fr;
+    border-top: 3px solid var(--ink);
+    margin-top: 30px;
+  }
+  .fact { padding: 16px 22px 18px; border-right: 3px solid var(--ink); }
+  .fact:first-child { padding-left: 48px; }
+  .fact:last-child { border-right: 0; }
+  .fact b {
+    display: block; font-family: "Silkscreen", monospace; font-weight: 400;
+    font-size: 12px; letter-spacing: 2px; color: var(--ink-soft); margin-bottom: 4px;
+  }
+  .fact div { font-family: "JetBrains Mono", monospace; font-size: 16.5px; font-weight: 700; }
+  .fact:first-child { background: var(--honey-light); }
+</style>
+</head>
+<body>
+  <div class="comb"></div>
+  <div class="frame">
+    <section class="left">
+      <div class="brand">
+        <img src="logo.svg" alt="">
+        <div>
+          <div class="wordmark">Paper<span>hive</span></div>
+          <div class="kicker">MINECRAFT SERVER HOST</div>
+        </div>
+      </div>
+      <h1>Many Paper servers.<br><mark>One JVM.</mark></h1>
+      <p class="lead">Run a whole network from one process: every server gets its own
+        class loader, folder and console, shares one host, and talks to the others
+        through the Hive API. A Velocity proxy can live in the hive too.</p>
+    </section>
+
+    <section class="right">
+      <div class="term">
+        <div class="bar">paperhive.yml <span><i></i><i></i><i></i></span></div>
+<pre><span class="k">Version</span>: <span class="s">1.21.11</span>
+<span class="k">Servers</span>:
+  - <span class="k">Name</span>: <span class="s">lobby</span>
+    <span class="k">Port</span>: 25566
+  - <span class="k">Name</span>: <span class="s">survival</span>
+    <span class="k">Port</span>: 25567
+  - <span class="k">Name</span>: <span class="s">proxy</span>
+    <span class="k">Port</span>: 25565
+    <span class="k">Software</span>: <span class="s">velocitymc</span></pre>
+        <div class="sep"></div>
+<pre><span class="c">&gt;</span> list
+lobby     <span class="ok">RUNNING</span>  port 25566  20.0 TPS
+survival  <span class="ok">RUNNING</span>  port 25567  20.0 TPS
+proxy     <span class="ok">RUNNING</span>  port 25565</pre>
+      </div>
+    </section>
+
+    <footer class="facts">
+      <div class="fact"><b>REPOSITORY</b><div>paperhiveio/paperhive</div></div>
+      <div class="fact"><b>DOCS</b><div>paperhive.abdullahcxd.org</div></div>
+      <div class="fact"><b>RUNS</b><div>Paper + Velocity</div></div>
+      <div class="fact"><b>LICENSE</b><div>MIT</div></div>
+    </footer>
+  </div>
+</body>
+</html>
